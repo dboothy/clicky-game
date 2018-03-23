@@ -19,7 +19,7 @@ class App extends Component {
     cards: cardsFile,
     cardPicks: [],
     score: 0,
-    message: []
+    message: "Welcome to DBZ clicky"
 
 
   };
@@ -39,12 +39,12 @@ class App extends Component {
     	newState.cardPicks = []
     	newState.cards = this.state.cards.sort()
       console.log(newState.cards, "Hi")
-      newState.message.push("You guessed incorrectly!")
+      newState.message = "You guessed incorrectly!"
     } else {
     	newState.cardPicks.push(id)
     	newState.score++
     	newState.cards = this.state.cards.sort((a, b)=> (0.5 - Math.random()))
-      newState.message.push("You guessed correctly!")
+      newState.message ="You guessed correctly!"
     }
     // Set this.state.friends equal to the new friends array
     this.setState(newState);
@@ -53,12 +53,14 @@ class App extends Component {
     render() {
     return (
     <div>
-    <Navbar />
+    <Navbar 
+    message={this.state.message}
+    score={this.state.score}
+    />
      <Header />
      <Main />
       <Wrapper>
         <Title>Pick a Card</Title>
-        <span>{this.state.score}</span>
         {this.state.cards.map(card => (
           <CardChoice
             shuffleCards={this.shuffleCards}
