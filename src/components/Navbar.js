@@ -11,7 +11,10 @@ const Navbar = props => (
 	    </li>
 	    <li className = "message"> {props.message}
 	    </li>
-	    <li> {props.score}
+	    <li> 
+	    	<span>Score: {props.score}</span>
+	    	<br></br>
+	    	<span>Top Score: {props.score2}</span>
 	    </li>
 	  </ul>
   </nav>

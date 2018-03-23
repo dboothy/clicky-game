@@ -19,6 +19,7 @@ class App extends Component {
     cards: cardsFile,
     cardPicks: [],
     score: 0,
+    score2:0,
     message: "Welcome to DBZ clicky"
 
 
@@ -33,6 +34,7 @@ class App extends Component {
     /*check to see if the id is inside the card Picks array, if true, game lost, else push id into the array
     */
 
+
     // newState.cards = this.state.cards.sort(function(a, b){return 0.5 - Math.random()})
     if( newState.cardPicks.includes(id)){
     	newState.score= 0
@@ -40,7 +42,7 @@ class App extends Component {
     	newState.cards = this.state.cards.sort()
       console.log(newState.cards, "Hi")
       newState.message = "You guessed incorrectly!"
-    } else {
+    }  else {
     	newState.cardPicks.push(id)
     	newState.score++
     	newState.cards = this.state.cards.sort((a, b)=> (0.5 - Math.random()))
@@ -56,11 +58,12 @@ class App extends Component {
     <Navbar 
     message={this.state.message}
     score={this.state.score}
+    score2={this.state.score2}
     />
      <Header />
      <Main />
       <Wrapper>
-        <Title>Pick a Card</Title>
+        <Title></Title>
         {this.state.cards.map(card => (
           <CardChoice
             shuffleCards={this.shuffleCards}
