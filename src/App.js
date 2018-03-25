@@ -78,16 +78,7 @@ class App extends Component {
   	</div>
     );
   }
-  // <div>
-  //   <Navbar />
-  //   <Header />
-  //   <Main />
-  //   <Footer/>
-  // </div>
-
 
 }
-
-
 
 export default App;
